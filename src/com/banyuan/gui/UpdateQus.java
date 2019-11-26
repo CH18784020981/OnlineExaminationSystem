@@ -60,7 +60,7 @@ public class UpdateQus extends javax.swing.JFrame {
             @Override
             public void actionPerformed(ActionEvent event) {
                 try {
-                    Client.dos.writeUTF("10," + jTextField4.getText() + ","+ jTextField6.getText() + ","+ jTextField5.getText() + ","+ jTextField8.getText() + ","+ jTextField7.getText() + ","+ jTextField9.getText());
+                    Client.dos.writeUTF("10," + jTextField4.getText()+"," + jTextField3.getText() + "," + jTextField6.getText() + "," + jTextField5.getText() + "," + jTextField8.getText() + "," + jTextField7.getText() + "," + jTextField9.getText());
                     Client.dos.flush();
                 } catch (IOException e) {
                     e.printStackTrace();

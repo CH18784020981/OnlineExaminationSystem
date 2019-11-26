@@ -3,8 +3,6 @@ package com.banyuan.theServer;
 import com.banyuan.pojo.Questions;
 import com.banyuan.pojo.Student;
 import com.banyuan.dao.daolmpl.UserDaolmpl;
-import com.banyuan.tools.AdminSystemTool;
-import com.sun.xml.internal.ws.api.ha.StickyFeature;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -18,7 +16,7 @@ import java.net.Socket;
  */
 public class Server {
     static ServerSocket se;
-    static String read[];
+    static String[] read;
 
     static {
         try {
@@ -80,9 +78,9 @@ public class Server {
             if (read[0].equals("12")) {
                 updatePassword();
             }
-            if (read[0].equals("13")) {
-                sort();
-            }
+//            if (read[0].equals("13")) {
+//                sort();
+//            }
         }
     }
 
@@ -249,7 +247,7 @@ public class Server {
     }
 
     /**
-     * 修改学生成功或失败的信息发送到客户端
+     * 修改试题成功或失败的信息发送到客户端
      */
     public static void updateQus() throws IOException {
         UserDaolmpl ud = new UserDaolmpl();
@@ -312,13 +310,13 @@ public class Server {
     /**
      * 排序
      */
-    public static void sort() throws IOException {
-        UserDaolmpl ud = new UserDaolmpl();
-        String qus = "";
-        //for (int i = 1; i <= 23; i++) {
-        qus = ud.sort(1);
-        // }
-        dos = new DataOutputStream(so.getOutputStream());
-        dos.writeUTF(qus);
-    }
+//    public static void sort() throws IOException {
+//        UserDaolmpl ud = new UserDaolmpl();
+//        String qus = "";
+//        //for (int i = 1; i <= 23; i++) {
+//        qus = ud.sort(1);
+//        // }
+//        dos = new DataOutputStream(so.getOutputStream());
+//        dos.writeUTF(qus);
+//    }
 }

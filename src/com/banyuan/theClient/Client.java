@@ -44,7 +44,7 @@ public class Client {
     }
 
     public static List list = new ArrayList();
-    public static List list2 = new ArrayList();
+ //   public static List list2 = new ArrayList();
 
     /**
      * 将试题从服务器导入到客户端的方法
@@ -63,12 +63,12 @@ public class Client {
      * 排序
      * @throws IOException
      */
-    public static void sort() throws IOException {
-        //设置一个服务器识别标签 13
-        dos.writeUTF("13,");
-        String[] str = dis.readUTF().split("·");
-        for (String s : str) {
-            list2.add(s);
-        }
-    }
+//    public static void sort() throws IOException {
+//        //设置一个服务器识别标签 13
+//        dos.writeUTF("13,");
+//        String[] str = dis.readUTF().split("·");
+//        for (String s : str) {
+//            list2.add(s);
+//        }
+//    }
 }

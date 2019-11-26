@@ -11,7 +11,7 @@ import java.io.IOException;
 public class Sort extends javax.swing.JFrame {
 
     public Sort() throws IOException {
-        Client.sort();
+       // Client.sort();
         initComponents();
     }
 
@@ -41,11 +41,11 @@ public class Sort extends javax.swing.JFrame {
         jLabel2.setText("jLabel2");
         jLabel2.setEnabled(false);
         String string = "";
-        String[] st = new String[Client.list2.size()];
-        for (int i = 0; i < Client.list2.size(); i++) {
-            st[i] = (String) Client.list2.get(i);
-            string = string + st[i] + '\n';
-        }
+//        String[] st = new String[Client.list2.size()];
+//        for (int i = 0; i < Client.list2.size(); i++) {
+//            st[i] = (String) Client.list2.get(i);
+//            string = string + st[i] + '\n';
+//        }
         jLabel2.setText(string);
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

@@ -261,7 +261,7 @@ public class UserDaolmpl implements UserDao {
             ps.setString(4, question.getChooseC());
             ps.setString(5, question.getChooseD());
             ps.setString(6, question.getAnswer());
-            ps.setInt(7, question.getQusNum());
+            ps.setInt(7, qusNum);
             int result = ps.executeUpdate();
             if (result > 0) {
                 return true;

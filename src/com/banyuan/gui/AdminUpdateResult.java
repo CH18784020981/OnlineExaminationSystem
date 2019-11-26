@@ -58,6 +58,7 @@ public class AdminUpdateResult extends javax.swing.JFrame {
 
         jButton1.setText("退出");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
+            @Override
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dispose();
                 Admin admin=new Admin();
@@ -125,6 +126,7 @@ public class AdminUpdateResult extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new AdminUpdateResult().setVisible(true);
             }
