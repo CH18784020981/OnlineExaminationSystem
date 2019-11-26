@@ -1,0 +1,38 @@
+package com.banyuan.gui;
+
+import javax.swing.*;
+
+/**
+ * @author 陈浩
+ * @date Created on 2019/11/21
+ */
+public abstract class BaseFrame extends JFrame {
+
+    public BaseFrame() {
+    }
+
+    public BaseFrame(String title) {
+        super(title);
+    }
+
+    protected void init() {
+        setup();
+        addElement();
+        addListener();
+        setFrameSelf();
+    }
+
+    //设置 字体  颜色  背景  布局
+    protected abstract void setup();
+
+    //将组件添加到窗体中
+    protected abstract void addElement();
+
+    //添加事件监听
+    protected abstract void addListener();
+
+    //设置窗体自身
+    protected abstract void setFrameSelf();
+}
+
+
