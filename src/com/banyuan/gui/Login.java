@@ -34,8 +34,6 @@ public class Login extends javax.swing.JFrame {
     JFrame jFrame = new JFrame();
 
 
-
-
     public Login() {
         initComponents();
     }
@@ -66,65 +64,69 @@ public class Login extends javax.swing.JFrame {
 
                 String uname = jTextField2.getText();
                 String pwd = jTextField4.getText();
-
-                try {
-                    Client.dos.writeUTF("L," + uname + "," + pwd);
-                    Client.dos.flush();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-                //DataInputStream dis = null;
-//                try {
-//                   // dis = new DataInputStream(Client.socket.getInputStream());
-//                } catch (IOException e) {
-//                    e.printStackTrace();
-//                }
-                //String str = null;
-                String[] str = new String[2];
-                try {
-                    str = Client.dis.readUTF().split(",");
-                    //str = dis.readUTF();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-                if (jRadioButton1.isSelected()) {
-
-
-                    if ("true".equals(str[0])) {
-
-
-                        JOptionPane.showMessageDialog(jFrame, "登陆成功", "验证消息", JOptionPane.INFORMATION_MESSAGE);
-
-                        Student student = new Student();
-                        student.setVisible(true);
-
-                        Login.super.setVisible(false);
-                    } else {
-                        JOptionPane.showMessageDialog(jFrame, "您输入信息有误", "验证消息", JOptionPane.INFORMATION_MESSAGE);
-                        dispose();
-                        Login login = new Login();
-                        login.setVisible(true);
+                String name = uname.replace(" ", "");
+                String wd = pwd.replace(" ", "");
+                System.out.println(uname.equals(""));
+                System.out.println("-" + uname + "-");
+                if (wd.equals("") || name.equals("")) {
+                    JOptionPane.showMessageDialog(jFrame, "账号或密码不能为空", "验证消息", JOptionPane.INFORMATION_MESSAGE);
+                    dispose();
+                    Login login = new Login();
+                    login.setVisible(true);
+                } else {
+                    try {
+                        Client.dos.writeUTF("L," + name + "," + wd);
+                        Client.dos.flush();
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
-                }
-                if (jRadioButton2.isSelected()) {
-                    if ("true".equals(str[1])) {
 
-                        JOptionPane.showMessageDialog(jFrame, "登陆成功", "验证消息", JOptionPane.INFORMATION_MESSAGE);
-                        dispose();
-                        Admin admin = new Admin();
-                        admin.setVisible(true);
 
-                    } else {
-                        JOptionPane.showMessageDialog(jFrame, "您输入信息有误", "验证消息", JOptionPane.INFORMATION_MESSAGE);
-                        dispose();
-                        Login login = new Login();
-                        login.setVisible(true);
+                    String[] str = new String[2];
+                    try {
+                        str = Client.dis.readUTF().split(",");
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
+
+                    if (jRadioButton1.isSelected()) {
+
+
+                        if ("true".equals(str[0])) {
+
+
+                            JOptionPane.showMessageDialog(jFrame, "登陆成功", "验证消息", JOptionPane.INFORMATION_MESSAGE);
+
+                            Student student = new Student();
+                            student.setVisible(true);
+
+                            Login.super.setVisible(false);
+                        } else {
+                            JOptionPane.showMessageDialog(jFrame, "您输入信息有误", "验证消息", JOptionPane.INFORMATION_MESSAGE);
+                            dispose();
+                            Login login = new Login();
+                            login.setVisible(true);
+                        }
+                    }
+                    if (jRadioButton2.isSelected()) {
+                        if ("true".equals(str[1])) {
+
+                            JOptionPane.showMessageDialog(jFrame, "登陆成功", "验证消息", JOptionPane.INFORMATION_MESSAGE);
+                            dispose();
+                            Admin admin = new Admin();
+                            admin.setVisible(true);
+
+                        } else {
+                            JOptionPane.showMessageDialog(jFrame, "您输入信息有误", "验证消息", JOptionPane.INFORMATION_MESSAGE);
+                            dispose();
+                            Login login = new Login();
+                            login.setVisible(true);
+                        }
+                    }
+
+
                 }
-
-
             }
         });
 
@@ -254,7 +256,9 @@ public class Login extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>
-public  static Client client=new Client();
+
+    public static Client client = new Client();
+
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }

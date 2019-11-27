@@ -22,13 +22,13 @@ public class TestUser {
 //        }
         //System.out.println(Client.getSelQus());
        // System.out.println(Client.getStuScore());
-        //new Questions();
-        Thread1 thread1=new Thread1();
-        Thread thread=new Thread(thread1);
-        thread.start();
-        Thread1 thread2=new Thread1();
-        Thread threa=new Thread(thread2);
-        threa.start();
+        new Questions();
+//        Thread1 thread1=new Thread1();
+//        Thread thread=new Thread(thread1);
+//        thread.start();
+//        Thread1 thread2=new Thread1();
+//        Thread threa=new Thread(thread2);
+//        threa.start();
     }
 }
 

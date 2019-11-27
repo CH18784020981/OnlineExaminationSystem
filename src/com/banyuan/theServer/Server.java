@@ -123,7 +123,7 @@ public class Server {
         UserDaolmpl ud = new UserDaolmpl();
         String result = ud.selQus(new Integer(read[1]));
         dos = new DataOutputStream(so.getOutputStream());
-        if (!result.equals(null)) {
+        if (result != null) {
             dos.writeUTF("" + result);
         } else {
             dos.writeUTF("你查询的题号不存在！！！");

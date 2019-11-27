@@ -7,6 +7,7 @@ package com.banyuan.gui;/*
 
 import com.banyuan.theClient.Client;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
@@ -17,6 +18,7 @@ import java.io.IOException;
  * @author newpc
  */
 public class UpdatePassword extends javax.swing.JFrame {
+    JFrame jFrame = new JFrame();
 
     /**
      * Creates new form UpdatePassword
@@ -88,17 +90,23 @@ public class UpdatePassword extends javax.swing.JFrame {
         jButton1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent event) {
+                String pwd1 = jTextField1.getText().replace(" ", "");
+                String pwd2 = jTextField1.getText().replace(" ", "");
+                if (pwd1.equals("") || pwd2.equals("")) {
+                    JOptionPane.showMessageDialog(jFrame, "输入密码不能为空", "验证消息", JOptionPane.INFORMATION_MESSAGE);
 
-                if (jTextField1.getText().equals(jTextField3.getText())) {
-                    try {
-                        Client.dos.writeUTF("12," + jTextField1.getText());
-                        Client.dos.flush();
-                    } catch (IOException e) {
-                        e.printStackTrace();
+                } else {
+                    if (pwd1.equals(pwd2)) {
+                        try {
+                            Client.dos.writeUTF("12," + pwd1);
+                            Client.dos.flush();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        dispose();
+                        UpdataStuPasswordResult stuSelResult = new UpdataStuPasswordResult();
+                        stuSelResult.setVisible(true);
                     }
-                    dispose();
-                    UpdataStuPasswordResult stuSelResult = new UpdataStuPasswordResult();
-                    stuSelResult.setVisible(true);
                 }
             }
         });
